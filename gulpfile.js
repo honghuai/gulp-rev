@@ -16,14 +16,14 @@ var gulp = require("gulp"),//基础库
     //filter = require('gulp-filter'),
     revCollector = require("gulp-rev-collector");//gulp-rev插件，用于html模板更改引用路径
 gulp.task("clean",function() {
-    return gulp.src("dist/admin/app",{read:false})
+    return gulp.src("dist/admin/",{read:false})
         .pipe(clean())
 })
 gulp.task("css",function() {
     return gulp.src("build/stylesheets/admin/css/*.css")
         .pipe(csso())
         .pipe(rename(function(path) {
-            path.basename += ".min";
+            //path.basename += ".min";
             path.extname = ".css"
         }))
         .pipe(rev())
